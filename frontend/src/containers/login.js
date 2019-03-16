@@ -1,7 +1,7 @@
 import React from 'react';
 import firebase from '../firebase';
 
-export default class Signup extends React.Component {
+export default class Login extends React.Component {
 
   state = {
     email: '',
@@ -17,7 +17,7 @@ export default class Signup extends React.Component {
     e.preventDefault();
 
     const { email, password } = this.state;
-    firebase.auth().createUserWithEmailAndPassword(email, password)
+    firebase.auth().signInWithEmailAndPassword(email, password)
       .then((response) => {
         console.log('Returns: ', response);
       })
@@ -49,7 +49,7 @@ export default class Signup extends React.Component {
 
     return (
       <>
-        <h1>Sign Up</h1>
+        <h1>Login</h1>
         {displayError}
         <form>
           <div className="form-group">
